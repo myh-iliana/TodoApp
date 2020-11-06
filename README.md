@@ -1,3 +1,16 @@
+# Task
+#### TODO LIST
+1. Sidebar with list of pages - active todos, completed todos and button contact us that open Modal Window (3 field Username, Message, Email) with 3 buttons Submit(can be mocked), Reset (Reset form data), Cancel(Close Modal).
+2. Sidebar can be hidden (toggle Open/Close button should be presented)
+3. Header with Change Theme Button. (Modal Windows opens and we can choose different color styles for our Sidebar/Header/Background/Text)
+4. Todos should be grouped by categoires. Slider of categories on the top of the page should change list of todos by selected category.
+5. CRUD Operations (Add todo, Delete Todo, Update Todo,  Retrieve Todo)
+6. User can complete todo and it should be removed from Active todos to Completed Todos.
+7. User should be able to search todos name.
+8. Filter by Date (Today, This Week, This Month)
+9. By default we have a list(table) representation of todos. Need to have button that will transform it to Grid View (Cards with data).
+10. Pagination.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
