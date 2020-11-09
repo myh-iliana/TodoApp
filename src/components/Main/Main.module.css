@@ -1,8 +1,8 @@
 .container {
     margin-top: 120px;
-    height: 2000px;
 }
 
 .main {
     display: flex;
+    min-height: 400px;
 }

@@ -2,6 +2,11 @@
     width: 220px;
     overflow: hidden;
     transition: all .5s ease;
+    border-bottom: 1px solid grey;
+
+    > div {
+        height: 100%;
+    }
 
     &.hidden {
         width: 0;
