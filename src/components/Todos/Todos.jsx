@@ -3,8 +3,8 @@ import { Paper } from '@material-ui/core';
 
 import s from './Todos.module.css';
 import TopContainer from './Top/TopContainer';
-import Bottom from './Bottom/Bottom';
 import TodosListContainer from './TodosList/TodosListContainer';
+import BottomContainer from './Bottom/BottomContainer';
 
 const Todos = ({ classes }) => {
   return (
@@ -15,7 +15,7 @@ const Todos = ({ classes }) => {
         <TodosListContainer />
       </Paper>
 
-      <Bottom />
+      <BottomContainer />
     </div>
   );
 };

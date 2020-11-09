@@ -3,18 +3,18 @@ import { Delete, Edit, GridOn, TableChart } from '@material-ui/icons';
 
 import s from './icons.module.scss';
 
-export const DeleteIcon = () => {
-  return <Delete className={s.delete} />;
+export const DeleteIcon = (props) => {
+  return <Delete className={s.delete} {...props} />;
 };
 
-export const EditIcon = () => {
-  return <Edit className={s.edit} />;
+export const EditIcon = (props) => {
+  return <Edit className={s.edit} {...props} />;
 };
 
-export const TableIcon = () => {
-  return <TableChart />;
+export const TableIcon = (props) => {
+  return <TableChart {...props} />;
 };
 
-export const GridIcon = () => {
-  return <GridOn />;
+export const GridIcon = (props) => {
+  return <GridOn {...props} />;
 };

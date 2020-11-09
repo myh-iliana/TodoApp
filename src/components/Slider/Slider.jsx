@@ -1,4 +1,5 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 import Carousel from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -6,21 +7,21 @@ import 'slick-carousel/slick/slick-theme.css';
 import s from './Slider.module.scss';
 import './slider.css';
 
-const cat = ['Slide 1', 'Slide 2', 'Slide 3', 'Slide 4', 'Slide 5', 'Slide 6', 'Slide 7', 'Slide 8'];
+const Slider = ({ categories }) => {
+  const categoryLength = categories.length;
 
-const Slider = () => {
   const settings = {
-    // dots: true,
+    dots: true,
     infinite: false,
     speed: 500,
-    slidesToShow: 5,
+    slidesToShow: categoryLength >= 5 ? 6 : categoryLength,
     slidesToScroll: 4,
     initialSlide: 0,
     responsive: [
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 3,
+          slidesToShow: categoryLength <= 3 ? categoryLength : 3,
           slidesToScroll: 3,
           infinite: true,
           dots: true,
@@ -29,7 +30,7 @@ const Slider = () => {
       {
         breakpoint: 600,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: categoryLength <= 2 ? categoryLength : 2,
           slidesToScroll: 2,
           initialSlide: 2,
         },
@@ -46,10 +47,10 @@ const Slider = () => {
   return (
     <div>
       <Carousel {...settings}>
-        {cat.map((item) => (
-          <a href="#" className={s.slide}>
-            <div>{item}</div>
-          </a>
+        {categories.map((name) => (
+          <NavLink activeClassName={s.active} to={name} key={name} className={s.slide}>
+            <div>{name}</div>
+          </NavLink>
         ))}
       </Carousel>
     </div>

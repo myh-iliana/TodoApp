@@ -5,7 +5,7 @@ import { makeStyles, fade } from '@material-ui/core/styles';
 
 import s from './Top.module.scss';
 import { GridIcon, TableIcon } from '../../elements/icons/icons';
-import Slider from '../Slider/Slider';
+import Slider from '../../Slider/Slider';
 
 const useStyles = makeStyles((theme) => ({
   search: {

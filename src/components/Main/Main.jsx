@@ -5,7 +5,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import s from './Main.module.css';
 import SidebarContainer from '../Sidebar/SidebarContainer';
 import Todos from '../Todos/Todos';
-import Slider from '../Todos/Slider/Slider';
+import SliderContainer from '../Slider/SliderContainer';
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -19,7 +19,7 @@ const Main = () => {
 
   return (
     <Container className={s.container}>
-      <Slider />
+      <SliderContainer />
       <main className={s.main}>
         <SidebarContainer classes={classes} />
         <Todos classes={classes} />

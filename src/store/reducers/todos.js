@@ -1,13 +1,8 @@
-import { ADD_TODO } from '../actions/todos';
+import { ADD_TODO, DELETE_TODO } from '../actions/todos';
 
 const initialState = {
   items: [],
-  categories: [
-    {
-      id: 'all-category',
-      name: 'All',
-    },
-  ],
+  categories: new Set(['All']),
 };
 
 const todos = (state = initialState, action) => {
@@ -16,13 +11,20 @@ const todos = (state = initialState, action) => {
       const newTodo = {
         id: action.id,
         text: action.text,
-        categoryId: action.categoryId,
+        category: action.category,
         createdAt: action.createdAt,
+        updatedAt: action.updatedAt,
       };
 
       return {
         ...state,
         items: [newTodo, ...state.items],
+      };
+
+    case DELETE_TODO:
+      return {
+        ...state,
+        items: state.items.filter(item => item.id !== action.id),
       };
 
     default:
