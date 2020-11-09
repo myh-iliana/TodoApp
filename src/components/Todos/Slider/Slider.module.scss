@@ -1,0 +1,14 @@
+.slide {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 100%;
+  background: #454545;
+  color: white;
+  text-decoration: none;
+
+  &:hover {
+    background: #7c7c7c;
+  }
+}

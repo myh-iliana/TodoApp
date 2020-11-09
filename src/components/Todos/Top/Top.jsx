@@ -5,6 +5,7 @@ import { makeStyles, fade } from '@material-ui/core/styles';
 
 import s from './Top.module.scss';
 import { GridIcon, TableIcon } from '../../elements/icons/icons';
+import Slider from '../Slider/Slider';
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -55,51 +56,54 @@ const Top = ({ toggleMenu, toggleView, menuIsVisible, view }) => {
   const toggleTodosView = (value) => toggleView(value);
 
   return (
-    <AppBar position="static" color="primary">
-      <Toolbar className={s.container}>
-        <div className={s.left}>
-          <Tooltip title="Hide/open left menu" enterDelay={800}>
+    <>
+      <AppBar position="static" color="primary">
+        <Toolbar className={s.container}>
+          <div className={s.left}>
+            <Tooltip title="Hide/open left menu" enterDelay={800}>
+              <IconButton
+                  onClick={toggleMenuVisibility}
+                  className={s.menuButton}
+                  color="inherit"
+                  component="span"
+              >
+                {menuIsVisible ? <MenuOpenIcon /> : <ArrowForwardIos />}
+              </IconButton>
+            </Tooltip>
+
+            <div className={classes.search}>
+              <div className={classes.searchIcon}>
+                <SearchIcon />
+              </div>
+              <InputBase
+                  placeholder="Search…"
+                  classes={{
+                    root: classes.inputRoot,
+                    input: classes.inputInput,
+                  }}
+                  inputProps={{ 'aria-label': 'search' }}
+              />
+            </div>
+          </div>
+
+          <Tooltip title='Click to change todos view' enterDelay={800}>
             <IconButton
-                onClick={toggleMenuVisibility}
+                onClick={() => {
+                  tableView && toggleTodosView('grid');
+                  gridView && toggleTodosView('table');
+                }}
                 className={s.menuButton}
                 color="inherit"
                 component="span"
             >
-              {menuIsVisible ? <MenuOpenIcon /> : <ArrowForwardIos />}
+              {gridView && <TableIcon />}
+              {tableView && <GridIcon />}
             </IconButton>
           </Tooltip>
-
-          <div className={classes.search}>
-            <div className={classes.searchIcon}>
-              <SearchIcon />
-            </div>
-            <InputBase
-                placeholder="Search…"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
-                }}
-                inputProps={{ 'aria-label': 'search' }}
-            />
-          </div>
-        </div>
-
-        <Tooltip title='Click to change todos view' enterDelay={800}>
-          <IconButton
-            onClick={() => {
-              tableView && toggleTodosView('grid');
-              gridView && toggleTodosView('table');
-            }}
-            className={s.menuButton}
-            color="inherit"
-            component="span"
-          >
-            {gridView && <TableIcon />}
-            {tableView && <GridIcon />}
-          </IconButton>
-        </Tooltip>
-      </Toolbar>
-    </AppBar>
+        </Toolbar>
+      </AppBar>
+      {/*<Slider />*/}
+    </>
   );
 };
 

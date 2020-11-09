@@ -1,0 +1,12 @@
+.slick-arrow {
+    background: transparent;
+    z-index: 999;
+}
+
+.slick-prev {
+    left: 10px;
+}
+
+.slick-next {
+    right: 10px;
+}
