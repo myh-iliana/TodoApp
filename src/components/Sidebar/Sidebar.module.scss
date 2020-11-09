@@ -3,6 +3,7 @@
     overflow: hidden;
     transition: all .5s ease;
     border-bottom: 1px solid grey;
+    flex-shrink: 0;
 
     > div {
         height: 100%;

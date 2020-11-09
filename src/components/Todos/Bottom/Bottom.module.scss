@@ -1,7 +1,12 @@
 .container {
   display: flex;
-  > * {
+
+  button {
     border-radius: 0;
     box-shadow: none;
+  }
+
+  textarea {
+    border-radius: 0;
   }
 }

@@ -4,6 +4,7 @@ import { Paper } from '@material-ui/core';
 import s from './Todos.module.css';
 import TopContainer from './Top/TopContainer';
 import Bottom from './Bottom/Bottom';
+import TodosListContainer from './TodosList/TodosListContainer';
 
 const Todos = ({ classes }) => {
   return (
@@ -11,7 +12,7 @@ const Todos = ({ classes }) => {
       <TopContainer />
 
       <Paper className={classes.paper} style={{flexGrow: 1}} square={true} variant="outlined">
-        <div>Todos</div>
+        <TodosListContainer />
       </Paper>
 
       <Bottom />

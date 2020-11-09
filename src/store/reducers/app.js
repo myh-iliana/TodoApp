@@ -1,7 +1,8 @@
-import { TOGGLE_MENU_VISIBLE } from '../actions/app';
+import {TOGGLE_MENU_VISIBLE, TOGGLE_TODOS_VIEW} from '../actions/app';
 
 const initialState = {
   isMenuVisible: true,
+  todosView: 'table',
 };
 
 const todos = (state = initialState, action) => {
@@ -10,6 +11,12 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         isMenuVisible: !state.isMenuVisible,
+      };
+
+    case TOGGLE_TODOS_VIEW:
+      return {
+        ...state,
+        todosView: action.view,
       };
 
     default:
