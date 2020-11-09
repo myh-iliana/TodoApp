@@ -1,0 +1,10 @@
+.sidebar {
+    width: 220px;
+    overflow: hidden;
+    transition: all .5s ease;
+
+    &.hidden {
+        width: 0;
+    }
+}
+
