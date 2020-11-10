@@ -2,7 +2,8 @@ import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 
 import todos from './reducers/todos';
 import app from './reducers/app';
-import { setTodos } from '../utils/localStorage';
+import { setCategories, setTodos } from '../utils/localStorage';
+import { ADD_CATEGORY } from './actions/todos';
 
 const rootReducer = combineReducers({
   app,
@@ -15,6 +16,12 @@ const saveTodos = store => next => action => {
   if (action.type.includes('TODO')) {
     const result = next(action);
     setTodos(store.getState().todos.items);
+    return result;
+  }
+
+  if (action.type === ADD_CATEGORY) {
+    const result = next(action);
+    setCategories([...store.getState().todos.categories]);
     return result;
   }
 

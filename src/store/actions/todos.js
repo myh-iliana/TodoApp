@@ -6,6 +6,7 @@ export const DELETE_TODO = 'DELETE_TODO';
 export const EDIT_TODO = 'EDIT_TODO';
 export const UPDATE_TODO = 'UPDATE_TODO';
 export const TOGGLE_COMPLETED_TODO = 'TOGGLE_COMPLETED_TODO';
+export const ADD_CATEGORY = 'ADD_CATEGORY';
 
 export const addTodo = (text, category) => ({
   type: ADD_TODO,
@@ -13,6 +14,11 @@ export const addTodo = (text, category) => ({
   text,
   category,
   createdAt: moment().format('DD.MM.YYYY'),
+});
+
+export const addCategory = (category) => ({
+  type: ADD_CATEGORY,
+  category,
 });
 
 export const editTodo = (id) => ({

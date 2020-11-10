@@ -1,9 +1,9 @@
-import { ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_COMPLETED_TODO, UPDATE_TODO } from '../actions/todos';
-import { getTodos } from '../../utils/localStorage';
+import { ADD_CATEGORY, ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_COMPLETED_TODO, UPDATE_TODO } from '../actions/todos';
+import { getCategories, getTodos } from '../../utils/localStorage';
 
 const initialState = {
   items: getTodos() || [],
-  categories: new Set(['All']),
+  categories: new Set(getCategories() || ['All']),
 };
 
 const todos = (state = initialState, action) => {
@@ -22,6 +22,11 @@ const todos = (state = initialState, action) => {
       return {
         ...state,
         items: [newTodo, ...state.items],
+      };
+    case ADD_CATEGORY:
+      return {
+        ...state,
+        categories: state.categories.add(action.category),
       };
 
     case TOGGLE_COMPLETED_TODO:

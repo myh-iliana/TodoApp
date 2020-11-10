@@ -1,3 +1,5 @@
 
-export const setTodos = (todos) => localStorage.setItem('todoApp', JSON.stringify({ todos }));
-export const getTodos = () => JSON.parse(localStorage.getItem('todoApp')).todos;
+export const setTodos = (todos) => localStorage.setItem('todoAppTodos', JSON.stringify(todos));
+export const getTodos = () => JSON.parse(localStorage.getItem('todoAppTodos'));
+export const setCategories = (categories) => localStorage.setItem('todoAppCategories', JSON.stringify(categories));
+export const getCategories = () => JSON.parse(localStorage.getItem('todoAppCategories'));

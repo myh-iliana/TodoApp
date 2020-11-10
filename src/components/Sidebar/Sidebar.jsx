@@ -13,7 +13,9 @@ const todosGroup = [
   { text: 'Completed', icon: DoneIcon },
 ];
 
-const restGroup = [{ text: 'Contact Us', icon: ContactSupportIcon }];
+const restGroup = [
+  { text: 'Contact Us', icon: ContactSupportIcon },
+  ];
 
 const Sidebar = ({ classes, isVisible }) => {
   return (
