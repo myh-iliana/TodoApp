@@ -3,14 +3,12 @@ import { Divider, List, ListItem, ListItemIcon, ListItemText, Paper } from '@mat
 import {
 	Done as DoneIcon,
 	FiberManualRecord as FiberManualRecordIcon,
-	ContactSupport as ContactSupportIcon,
 	AllInclusive as AllInclusiveIcon,
 } from '@material-ui/icons';
 
 import s from './Sidebar.module.scss';
 import { routes } from '../App/App';
-
-const restGroup = [{ text: 'Contact Us', icon: ContactSupportIcon }];
+import ContactUsDialog from '../ContactUsDialog/ContactUsDialog';
 
 const Sidebar = ({ classes, isVisible, setFilterOption, filterOption }) => {
 	const todosGroup = [
@@ -28,7 +26,12 @@ const Sidebar = ({ classes, isVisible, setFilterOption, filterOption }) => {
 					<Divider />
 					<List>
 						{todosGroup.map(({ text, icon: Icon, option }) => (
-							<ListItem selected={filterOption === option} onClick={() => onSetFilterOption(option)} button key={text}>
+							<ListItem
+								selected={filterOption === option}
+								onClick={() => onSetFilterOption(option)}
+								button
+								key={text}
+							>
 								<ListItemIcon>
 									<Icon color="secondary" />
 								</ListItemIcon>
@@ -38,14 +41,7 @@ const Sidebar = ({ classes, isVisible, setFilterOption, filterOption }) => {
 					</List>
 					<Divider />
 					<List>
-						{restGroup.map(({ text, icon: Icon }) => (
-							<ListItem button key={text}>
-								<ListItemIcon>
-									<Icon />
-								</ListItemIcon>
-								<ListItemText primary={text} />
-							</ListItem>
-						))}
+						<ContactUsDialog />
 					</List>
 				</div>
 			</Paper>

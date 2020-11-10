@@ -46,7 +46,7 @@ const Bottom = ({ categories, addTodo }) => {
 				}}
 				renderInput={(params) => <TextField {...params} label="Choose category" variant="filled" />}
 			/>
-			<Button onClick={onAddTodo} variant="contained" color="secondary">
+			<Button onClick={onAddTodo} variant="contained" color="primary">
 				Add
 			</Button>
 		</div>
