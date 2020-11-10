@@ -1,0 +1,17 @@
+.colorsAndButtons {
+  display: flex;
+  justify-content: space-between;
+
+  > * {
+    margin: 10px;
+  }
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+}
+
+.active {
+  background: #c9cacc;
+}

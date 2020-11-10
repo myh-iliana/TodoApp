@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import store from '../../store';
 import Header from '../Header/Header';
 import Main from '../Main/Main';
+import WithThemeContainer from '../WithTheme/WithThemeContainer';
 
 export const routes = {
   activeTodos: 'active',
@@ -12,12 +13,15 @@ export const routes = {
 };
 
 const App = () => {
+
   return (
     <Provider store={store}>
       <BrowserRouter>
-        <Header />
+        <WithThemeContainer>
+          <Header />
 
-        <Main />
+          <Main />
+        </WithThemeContainer>
       </BrowserRouter>
     </Provider>
   );

@@ -1,7 +1,9 @@
 import React from 'react';
-import { AppBar, Button, IconButton, Toolbar, Typography } from '@material-ui/core';
+import { AppBar, IconButton, Toolbar, Typography } from '@material-ui/core';
 import { ListAlt as ListAltIcon } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
+
+import ThemeModalContainer from '../ThemeModal/ThemeModalContainer';
 
 const useStyles = makeStyles((theme) => ({
   menuButton: {
@@ -24,7 +26,7 @@ const Header = () => {
         <Typography variant="h6" className={classes.title}>
           Todos
         </Typography>
-        <Button color="inherit">Change Theme</Button>
+        <ThemeModalContainer />
       </Toolbar>
     </AppBar>
   );

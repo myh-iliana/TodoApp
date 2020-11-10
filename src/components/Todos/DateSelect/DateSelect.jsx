@@ -1,7 +1,6 @@
 import React from 'react';
 import { MenuItem, Select, FormControl, InputBase } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { setDateOption } from '../../../store/actions/filter';
 
 const BootstrapInput = withStyles((theme) => ({
 	root: {
