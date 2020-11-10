@@ -1,5 +1,4 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import Carousel from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,7 +6,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import s from './Slider.module.scss';
 import './slider.css';
 
-const Slider = ({ categories, setCategoryOption }) => {
+const Slider = ({ categories, setCategoryOption, selectedCategory }) => {
 	const categoryLength = categories.length;
 	const handleCategoryChange = (category) => setCategoryOption(category);
 
@@ -15,7 +14,7 @@ const Slider = ({ categories, setCategoryOption }) => {
 		dots: true,
 		infinite: false,
 		speed: 500,
-		slidesToShow: categoryLength >= 5 ? 6 : categoryLength,
+		slidesToShow: categoryLength > 5 ? 6 : categoryLength,
 		slidesToScroll: 4,
 		initialSlide: 0,
 		responsive: [
@@ -49,9 +48,13 @@ const Slider = ({ categories, setCategoryOption }) => {
 		<div>
 			<Carousel {...settings}>
 				{categories.map((name) => (
-					<NavLink activeClassName={s.active} onClick={() => handleCategoryChange(name)} to={name} key={name} className={s.slide}>
+					<div
+						onClick={() => handleCategoryChange(name)}
+						key={name}
+						className={`${s.slide} ${name === selectedCategory && s.active}`}
+					>
 						<div>{name}</div>
-					</NavLink>
+					</div>
 				))}
 			</Carousel>
 		</div>

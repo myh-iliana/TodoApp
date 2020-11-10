@@ -12,10 +12,17 @@ const TodosTableView = ({ todos, deleteTodo, editTodo, updateTodo, toggleComplet
 
 	return (
 		<List component="nav">
-			{todos.map(({ text, id, editMode, completed }) => (
+			{todos.map(({ text, id, editMode, completed, category, createdAt }) => (
 				<ListItem key={id} button>
 					{editMode && <Input oldText={text} updateTodo={updateTodo} id={id} />}
-					{!editMode && <ListItemText className={completed && s.completed} primary={text} onDoubleClick={() => onToggleCompleted(id)} />}
+					{!editMode && (
+						<ListItemText
+							className={completed && s.completed}
+							primary={text}
+							secondary={`${category}, ${createdAt}`}
+							onDoubleClick={() => onToggleCompleted(id)}
+						/>
+					)}
 					<ListItemIcon>
 						<EditIcon onClick={() => onEditTodo(id)} />
 						<DeleteIcon onClick={() => onDeleteTodo(id)} />

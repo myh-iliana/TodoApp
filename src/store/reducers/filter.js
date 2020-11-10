@@ -4,6 +4,7 @@ const initialState = {
 	text: '',
 	filterOption: null,
 	category: 'All',
+	dateOption: null,
 };
 
 const filter = (state = initialState, action) => {

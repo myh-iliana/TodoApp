@@ -19,6 +19,8 @@ const Sidebar = ({ classes, isVisible, setFilterOption, filterOption }) => {
 		{ text: 'Completed', icon: DoneIcon, option: routes.completedTodos },
 	];
 
+	const onSetFilterOption = (option) => setFilterOption(option);
+
 	return (
 		<div className={`${s.sidebar} ${!isVisible && s.hidden}`}>
 			<Paper className={classes.paper} square={true} variant="outlined">
@@ -26,7 +28,7 @@ const Sidebar = ({ classes, isVisible, setFilterOption, filterOption }) => {
 					<Divider />
 					<List>
 						{todosGroup.map(({ text, icon: Icon, option }) => (
-							<ListItem selected={filterOption === option} onClick={() => setFilterOption(option)} button key={text}>
+							<ListItem selected={filterOption === option} onClick={() => onSetFilterOption(option)} button key={text}>
 								<ListItemIcon>
 									<Icon color="secondary" />
 								</ListItemIcon>

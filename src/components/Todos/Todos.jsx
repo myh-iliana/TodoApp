@@ -11,7 +11,7 @@ const Todos = ({ classes }) => {
     <div className={s.todos}>
       <TopContainer />
 
-      <Paper className={classes.paper} style={{flexGrow: 1}} square={true} variant="outlined">
+      <Paper className={`${classes.paper} ${s.list}`} square={true} variant="outlined">
         <TodosListContainer />
       </Paper>
 

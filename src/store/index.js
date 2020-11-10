@@ -1,15 +1,17 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 
+import { setCategories, setTodos } from '../utils/localStorage';
+import { ADD_CATEGORY, ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_COMPLETED_TODO, UPDATE_TODO } from './actions/todos';
 import todos from './reducers/todos';
 import app from './reducers/app';
 import filter from './reducers/filter';
-import { setCategories, setTodos } from '../utils/localStorage';
-import { ADD_CATEGORY, ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_COMPLETED_TODO, UPDATE_TODO } from './actions/todos';
+import pagination from './reducers/pagination';
 
 const rootReducer = combineReducers({
 	app,
 	todos,
 	filter,
+	pagination,
 });
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;

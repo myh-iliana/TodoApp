@@ -34,6 +34,7 @@ const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory }) => {
     if (e.keyCode === 13) {
       setAddCategoryMode(false);
       addCategory(category);
+      setCategory('');
     }
   };
 	const handleChangeCategory = (e) => setCategory(e.target.value);

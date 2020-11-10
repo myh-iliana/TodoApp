@@ -1,3 +1,11 @@
+.list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: space-between;
+    flex-grow: 1;
+}
+
 .todos {
     display: flex;
     flex-direction: column;
