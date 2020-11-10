@@ -3,7 +3,7 @@ import Carousel from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-import s from './Slider.module.scss';
+import styles from './Slider.module.scss';
 import './slider.css';
 
 const Slider = ({ categories, setCategoryOption, selectedCategory }) => {
@@ -51,7 +51,7 @@ const Slider = ({ categories, setCategoryOption, selectedCategory }) => {
 					<div
 						onClick={() => handleCategoryChange(name)}
 						key={name}
-						className={`${s.slide} ${name === selectedCategory && s.active}`}
+						className={`${styles.slide} ${name === selectedCategory ? styles.active : ''}`}
 					>
 						<div>{name}</div>
 					</div>

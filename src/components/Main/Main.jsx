@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
-import s from './Main.module.css';
+import styles from './Main.module.css';
 import SidebarContainer from '../Sidebar/SidebarContainer';
 import Todos from '../Todos/Todos';
 import SliderContainer from '../Slider/SliderContainer';
@@ -18,9 +18,9 @@ const Main = () => {
   const classes = useStyles();
 
   return (
-    <Container className={s.container}>
+    <Container className={styles.container}>
       <SliderContainer />
-      <main className={s.main}>
+      <main className={styles.main}>
         <SidebarContainer classes={classes} />
         <Todos classes={classes} />
       </main>

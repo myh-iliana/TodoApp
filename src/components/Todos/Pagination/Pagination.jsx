@@ -1,8 +1,8 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Pagination as PaginationMU } from '@material-ui/lab';
 
 const Pagination = ({ setCurrentPage, totalCount, pageSize }) => {
-	const [page, setPage] = React.useState(1);
+	const [page, setPage] = useState(1);
 	const pagesCount = useMemo(() => Math.ceil(totalCount / pageSize), [totalCount, pageSize]);
 
 	const onPageChange = (e, page) => {

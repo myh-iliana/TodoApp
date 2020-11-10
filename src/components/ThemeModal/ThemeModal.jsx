@@ -9,7 +9,7 @@ import {
 } from '@material-ui/core';
 import { SketchPicker } from 'react-color';
 
-import s from './ThemeModal.module.scss';
+import styles from './ThemeModal.module.scss';
 
 const ThemeModal = ({ setNewTheme, colorsName, resetTheme }) => {
 	const [open, setOpen] = useState(false);
@@ -34,12 +34,13 @@ const ThemeModal = ({ setNewTheme, colorsName, resetTheme }) => {
 				<DialogTitle>Change app theme</DialogTitle>
 				<DialogContent>
 					<DialogContentText>Click the button which color to set and then choose it.</DialogContentText>
-					<div className={s.colorsAndButtons}>
+					<div className={styles.colorsAndButtons}>
 						<SketchPicker color={color} onChangeComplete={handleChangeComplete} />
-						<div className={s.buttons}>
+						<div className={styles.buttons}>
 							{colorsName.map(({ name, text }) => (
 								<Button
-									className={themePart === name && s.active}
+									key={name}
+									className={themePart === name ? styles.active : ''}
 									onClick={() => handleThemePart(name)}
 									color="secondary"
 								>

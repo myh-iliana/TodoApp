@@ -6,21 +6,21 @@ import {
 	AllInclusive as AllInclusiveIcon,
 } from '@material-ui/icons';
 
-import s from './Sidebar.module.scss';
-import { routes } from '../App/App';
+import styles from './Sidebar.module.scss';
 import ContactUsDialog from '../ContactUsDialog/ContactUsDialog';
+import { filterTodos } from '../../variables';
 
 const Sidebar = ({ classes, isVisible, setFilterOption, filterOption }) => {
 	const todosGroup = [
 		{ text: 'All', icon: AllInclusiveIcon, option: null },
-		{ text: 'Active', icon: FiberManualRecordIcon, option: routes.activeTodos },
-		{ text: 'Completed', icon: DoneIcon, option: routes.completedTodos },
+		{ text: 'Active', icon: FiberManualRecordIcon, option: filterTodos.state.active },
+		{ text: 'Completed', icon: DoneIcon, option: filterTodos.state.completed },
 	];
 
 	const onSetFilterOption = (option) => setFilterOption(option);
 
 	return (
-		<div className={`${s.sidebar} ${!isVisible && s.hidden}`}>
+		<div className={`${styles.sidebar} ${!isVisible && styles.hidden}`}>
 			<Paper className={classes.paper} square={true} variant="outlined">
 				<div>
 					<Divider />

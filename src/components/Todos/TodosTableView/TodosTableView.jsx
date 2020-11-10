@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 
-import s from '../TodosList/TodosList.module.scss';
+import styles from '../TodosList/TodosList.module.scss';
 import { DeleteIcon, EditIcon } from '../../elements/icons/icons';
 import Input from '../Input/Input';
 
@@ -17,7 +17,7 @@ const TodosTableView = ({ todos, deleteTodo, editTodo, updateTodo, toggleComplet
 					{editMode && <Input oldText={text} updateTodo={updateTodo} id={id} />}
 					{!editMode && (
 						<ListItemText
-							className={completed && s.completed}
+							className={completed ? styles.completed : ''}
 							primary={text}
 							secondary={`${category}, ${createdAt}`}
 							onDoubleClick={() => onToggleCompleted(id)}

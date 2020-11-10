@@ -48,8 +48,8 @@ const ContactUsDialog = () => {
 				<ListItemText primary="Contact Us" />
 			</ListItem>
 
-			<Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-				<DialogTitle id="form-dialog-title">Contact Us</DialogTitle>
+			<Dialog open={open} onClose={handleClose}>
+				<DialogTitle>Contact Us</DialogTitle>
 				<DialogContent>
 					<DialogContentText>
 						To contacht us, please enter your username, email address and message here.

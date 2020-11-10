@@ -1,8 +1,7 @@
 import React from 'react';
 import { Grid, Card, CardContent, Typography, CardActions } from '@material-ui/core';
 
-import styles from '../TodosList/TodosList.module.scss';
-import s from './TodosGridView.module.scss';
+import styles from './TodosGridView.module.scss';
 import { DeleteIcon, EditIcon } from '../../elements/icons/icons';
 import Input from '../Input/Input';
 
@@ -15,15 +14,15 @@ const TodosGridView = ({ todos, deleteTodo, editTodo, updateTodo, toggleComplete
 		<Grid container justify="center" spacing={2}>
 			{todos.map(({ text, id, editMode, completed, category, createdAt }) => (
 				<Grid key={id} item lg={3} md={4} sm={6} xs={12} onDoubleClick={() => onToggleCompleted(id)}>
-					<Card className={s.card} square>
+					<Card className={styles.card} square>
 						<CardContent>
 							{editMode && <Input oldText={text} updateTodo={updateTodo} id={id} />}
 							{!editMode && (
-								<Typography className={completed && styles.completed} variant="body2" component="p">
+								<Typography className={completed ? styles.completed : ''} variant="body2" component="p">
 									{text}
 								</Typography>
 							)}
-							<Typography className={s.secondaryText} color="textSecondary" gutterBottom>
+							<Typography className={styles.secondaryText} color="textSecondary" gutterBottom>
 								{category}, {createdAt}
 							</Typography>
 						</CardContent>

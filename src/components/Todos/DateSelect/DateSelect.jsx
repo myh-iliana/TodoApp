@@ -2,6 +2,8 @@ import React from 'react';
 import { MenuItem, Select, FormControl, InputBase } from '@material-ui/core';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 
+import { filterTodos } from '../../../variables';
+
 const BootstrapInput = withStyles((theme) => ({
 	root: {
 		'label + &': {
@@ -61,9 +63,9 @@ const DateSelect = ({ setDateOption }) => {
 				input={<BootstrapInput />} label='Filter by date'
 			>
 				<MenuItem value="">None</MenuItem>
-				<MenuItem value="today">Today</MenuItem>
-				<MenuItem value="week">This week</MenuItem>
-				<MenuItem value="month">This month</MenuItem>
+				<MenuItem value={filterTodos.date.day}>Today</MenuItem>
+				<MenuItem value={filterTodos.date.week}>This week</MenuItem>
+				<MenuItem value={filterTodos.date.month}>This month</MenuItem>
 			</Select>
 		</FormControl>
 	);

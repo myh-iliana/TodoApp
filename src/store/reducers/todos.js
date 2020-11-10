@@ -1,9 +1,10 @@
 import { ADD_CATEGORY, ADD_TODO, DELETE_TODO, EDIT_TODO, TOGGLE_COMPLETED_TODO, UPDATE_TODO } from '../actions/todos';
 import { getCategories, getTodos } from '../../utils/localStorage';
+import { filterTodos } from '../../variables';
 
 const initialState = {
   items: getTodos() || [],
-  categories: new Set(getCategories() || ['All']),
+  categories: new Set(getCategories() || [filterTodos.category.all]),
 };
 
 const todos = (state = initialState, action) => {

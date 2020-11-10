@@ -7,26 +7,17 @@ import {
 } from '@material-ui/icons';
 import { makeStyles } from '@material-ui/core/styles';
 
-import s from './Top.module.scss';
+import styles from './Top.module.scss';
 import { GridIcon, TableIcon } from '../../elements/icons/icons';
 import SearchContainer from '../Search/SearchContainer';
 import DateSelect from '../DateSelect/DateSelect';
-
-const useStyles = makeStyles((theme) => ({
-	root: {
-		color: 'white',
-	},
-	underline: {
-		borderBottom: '1px solid rgba(0, 0, 0, 0.42) !important',
-	},
-}));
+import { todosView } from '../../../variables';
 
 const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory, setDateOption }) => {
 	const [addCategoryMode, setAddCategoryMode] = useState(false);
 	const [category, setCategory] = useState('');
-	const classes = useStyles();
-	const tableView = view === 'table';
-	const gridView = view === 'grid';
+	const tableView = view === todosView.table;
+	const gridView = view === todosView.grid;
 
 	const toggleMenuVisibility = () => toggleMenu();
 	const toggleTodosView = (value) => toggleView(value);
@@ -43,12 +34,12 @@ const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory, setDate
 	return (
 		<>
 			<AppBar position="static" color="primary">
-				<Toolbar className={s.container}>
-					<div className={s.left}>
+				<Toolbar className={styles.container}>
+					<div className={styles.left}>
 						<Tooltip title="Hide/open left menu" enterDelay={800}>
 							<IconButton
 								onClick={toggleMenuVisibility}
-								className={s.menuButton}
+								className={styles.menuButton}
 								color="inherit"
 								component="span"
 							>
@@ -62,7 +53,6 @@ const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory, setDate
 							<Button
 								onClick={onStartAddCategory}
 								color="inherit"
-								className={classes.button}
 								startIcon={<AddIcon />}
 							>
 								Add category
@@ -71,7 +61,6 @@ const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory, setDate
 						{addCategoryMode && (
 							<Input
                 onKeyDown={onFinishAddCategory}
-								className={`${classes.root} ${classes.underline}`}
 								variant="filled"
 								placeholder="Enter name"
 								value={category}
@@ -80,15 +69,15 @@ const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory, setDate
 						)}
 					</div>
 
-					<div className={s.right}>
+					<div className={styles.right}>
 						<DateSelect setDateOption={setDateOption} />
 						<Tooltip title="Click to change todos view" enterDelay={800}>
 							<IconButton
 								onClick={() => {
-									tableView && toggleTodosView('grid');
-									gridView && toggleTodosView('table');
+									tableView && toggleTodosView(todosView.grid);
+									gridView && toggleTodosView(todosView.table);
 								}}
-								className={s.menuButton}
+								className={styles.menuButton}
 								color="inherit"
 								component="span"
 							>

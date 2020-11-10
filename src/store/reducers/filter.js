@@ -1,9 +1,10 @@
 import { SEARCH_TODO, SET_CATEGORY_OPTION, SET_DATE_OPTION, SET_FILTER_OPTION } from '../actions/filter';
+import { filterTodos } from '../../variables';
 
 const initialState = {
 	text: '',
 	filterOption: null,
-	category: 'All',
+	category: filterTodos.category.all,
 	dateOption: null,
 };
 

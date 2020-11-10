@@ -4,22 +4,22 @@ import moment from 'moment';
 import TodosList from './TodosList';
 import { deleteTodo, editTodo, toggleCompleted, updateTodo } from '../../../store/actions/todos';
 import { setCurrentPage } from '../../../store/actions/pagination';
-import { routes } from '../../App/App';
+import { filterTodos } from '../../../variables';
 
 function searchTodos(todos, search) {
 	return todos.filter((todo) => todo.text.toLowerCase().includes(search.toLowerCase()));
 }
 
 function filterByDate(todos, dateOption) {
-	if (dateOption === 'today') {
+	if (dateOption === filterTodos.date.day) {
 		const startOfDay = moment().startOf('day').valueOf();
 		return todos.filter(todo => moment(todo.createdAt, 'DD.MM.YYYY').valueOf() >= startOfDay);
 	}
-	if (dateOption === 'week') {
+	if (dateOption === filterTodos.date.week) {
 		const startOfWeek = moment().startOf('isoWeek').valueOf();
 		return todos.filter(todo => moment(todo.createdAt, 'DD.MM.YYYY').valueOf() >= startOfWeek);
 	}
-	if (dateOption === 'month') {
+	if (dateOption === filterTodos.date.month) {
 		const startOfMonth = moment().startOf('month').valueOf();
 		return todos.filter(todo => moment(todo.createdAt, 'DD.MM.YYYY').valueOf() >= startOfMonth);
 	}
@@ -28,7 +28,7 @@ function filterByDate(todos, dateOption) {
 }
 
 function filterByCategory(todos, category) {
-	const categoryOption = category === 'All' ? null : category;
+	const categoryOption = category === filterTodos.category.all ? null : category;
 
 	if (categoryOption) {
 		return todos.filter(todo => todo.category === categoryOption);
@@ -37,12 +37,12 @@ function filterByCategory(todos, category) {
 	return todos;
 }
 
-function filterTodos(todos, option) {
-  if (option === routes.activeTodos) {
+function filterTodosByState(todos, option) {
+  if (option === filterTodos.state.active) {
     return todos.filter((todo) => !todo.completed);
   }
 
-  if (option === routes.completedTodos) {
+  if (option === filterTodos.state.completed) {
     return todos.filter((todo) => todo.completed);
   }
 
@@ -55,7 +55,7 @@ const mapStateToProps = (state) => ({
 	currentPage: state.pagination.currentPage,
 	todos: state.filter.text
 		? searchTodos(state.todos.items, state.filter.text)
-		: filterTodos(
+		: filterTodosByState(
 			filterByCategory(
 				filterByDate(
 					state.todos.items,
