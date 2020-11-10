@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IconButton, Tooltip, AppBar, Toolbar, Button, Input } from '@material-ui/core';
+import { IconButton, Tooltip, AppBar, Toolbar, Button, Input  } from '@material-ui/core';
 import {
 	MenuOpen as MenuOpenIcon,
 	ArrowForwardIos,
@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import s from './Top.module.scss';
 import { GridIcon, TableIcon } from '../../elements/icons/icons';
 import SearchContainer from '../Search/SearchContainer';
+import DateSelect from '../DateSelect/DateSelect';
 
 const useStyles = makeStyles((theme) => ({
 	root: {
@@ -20,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
-const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory }) => {
+const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory, setDateOption }) => {
 	const [addCategoryMode, setAddCategoryMode] = useState(false);
 	const [category, setCategory] = useState('');
 	const classes = useStyles();
@@ -79,20 +80,23 @@ const Top = ({ toggleMenu, toggleView, menuIsVisible, view, addCategory }) => {
 						)}
 					</div>
 
-					<Tooltip title="Click to change todos view" enterDelay={800}>
-						<IconButton
-							onClick={() => {
-								tableView && toggleTodosView('grid');
-								gridView && toggleTodosView('table');
-							}}
-							className={s.menuButton}
-							color="inherit"
-							component="span"
-						>
-							{gridView && <TableIcon />}
-							{tableView && <GridIcon />}
-						</IconButton>
-					</Tooltip>
+					<div className={s.right}>
+						<DateSelect setDateOption={setDateOption} />
+						<Tooltip title="Click to change todos view" enterDelay={800}>
+							<IconButton
+								onClick={() => {
+									tableView && toggleTodosView('grid');
+									gridView && toggleTodosView('table');
+								}}
+								className={s.menuButton}
+								color="inherit"
+								component="span"
+							>
+								{gridView && <TableIcon />}
+								{tableView && <GridIcon />}
+							</IconButton>
+						</Tooltip>
+					</div>
 				</Toolbar>
 			</AppBar>
 		</>

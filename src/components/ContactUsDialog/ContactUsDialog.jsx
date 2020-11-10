@@ -13,8 +13,6 @@ import {
 } from '@material-ui/core';
 import { ContactSupport as ContactSupportIcon } from '@material-ui/icons';
 
-// import s from './ContactUsDialog.module.scss';
-
 const ContactUsDialog = () => {
 	const [open, setOpen] = useState(false);
 	const [username, setUsername] = useState('');

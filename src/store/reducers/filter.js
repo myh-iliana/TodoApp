@@ -1,4 +1,4 @@
-import { SEARCH_TODO, SET_CATEGORY_OPTION, SET_FILTER_OPTION } from '../actions/filter';
+import { SEARCH_TODO, SET_CATEGORY_OPTION, SET_DATE_OPTION, SET_FILTER_OPTION } from '../actions/filter';
 
 const initialState = {
 	text: '',
@@ -25,6 +25,12 @@ const filter = (state = initialState, action) => {
 			return {
 				...state,
 				category: action.category,
+			};
+
+		case SET_DATE_OPTION:
+			return {
+				...state,
+				dateOption: action.option,
 			};
 
 		default:
