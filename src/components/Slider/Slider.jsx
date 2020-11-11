@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Carousel from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -7,7 +7,7 @@ import styles from './Slider.module.scss';
 import './slider.css';
 
 const Slider = ({ categories, setCategoryOption, selectedCategory }) => {
-	const categoryLength = categories.length;
+	const categoryLength = useMemo(() => categories.length, [categories]);
 	const handleCategoryChange = (category) => setCategoryOption(category);
 
 	const settings = {

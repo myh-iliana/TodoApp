@@ -5,7 +5,6 @@ import {
 	ArrowForwardIos,
 	Add as AddIcon,
 } from '@material-ui/icons';
-import { makeStyles } from '@material-ui/core/styles';
 
 import styles from './Top.module.scss';
 import { GridIcon, TableIcon } from '../../elements/icons/icons';
