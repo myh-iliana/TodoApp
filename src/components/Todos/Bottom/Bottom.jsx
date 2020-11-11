@@ -3,6 +3,7 @@ import { TextField, Button } from '@material-ui/core';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import styles from './Bottom.module.scss';
+import './mui-styles.css';
 
 const Bottom = ({ categories, addTodo }) => {
 	const [text, setText] = useState('');

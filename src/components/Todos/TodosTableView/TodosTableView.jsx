@@ -12,7 +12,7 @@ const TodosTableView = ({ todos, deleteTodo, editTodo, updateTodo, toggleComplet
 
 	return (
 		<List component="nav">
-			{() => todos.map(({ text, id, editMode, completed, category, createdAt }) => (
+			{todos.map(({ text, id, editMode, completed, category, createdAt }) => (
 				<ListItem key={id} button>
 					{editMode && <Input oldText={text} updateTodo={updateTodo} id={id} />}
 					{!editMode && (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
 import styles from './Main.module.css';
@@ -19,6 +19,9 @@ const Main = () => {
 
   return (
     <Container className={styles.container}>
+      <Typography variant="overline" display="block" color='textPrimary' gutterBottom>
+        * Use double click to complete task
+      </Typography>
       <SliderContainer />
       <main className={styles.main}>
         <SidebarContainer classes={classes} />
